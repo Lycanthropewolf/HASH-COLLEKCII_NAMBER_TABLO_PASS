@@ -1,12 +1,30 @@
 import Passport.Passport;
 
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Random;
+import java.util.Set;
+
 import static MultiplicationTable.MultiplicationTable.generatePairNumber;
 import static MultiplicationTable.MultiplicationTable.getSetTasks;
 
 public class Main {
     public static void main(String[] args) {
         //ДЗ про числа
-
+        Set<Integer> numbers = new HashSet<>();
+        Random random = new Random();
+        for (int i = 0; i < 20; i++) {
+            int t = random.nextInt(1000);
+            numbers.add(t);
+        }
+        Iterator<Integer> iterator = numbers.iterator();
+        while (iterator.hasNext()) {
+            var integer = iterator.next();
+            if (integer % 2 != 0){
+                iterator.remove();
+                System.out.println(integer+" ");
+            }
+        }
 
         //ДЗ про таблицу умножения
         int count = 0;
@@ -17,6 +35,7 @@ public class Main {
                 getSetTasks().add(pairNumber);
                 count++;
             }
+
         }
         System.out.println(getSetTasks());
 
@@ -30,7 +49,8 @@ public class Main {
 
         Passport.printListOfPassports();
 
-        System.out.println(Passport.searchPassport(new Passport(5363,"Смирнов","Дмитрий","Евгеньевич","30.06.1976")));
-        System.out.println(Passport.searchPassport(new Passport(5342,"Смирнов","Дмитрий","Евгеньевич","30.06.1976")));
+        System.out.println(Passport.searchPassport(new Passport(5363, "Смирнов", "Дмитрий", "Евгеньевич", "30.06.1976")));
+        System.out.println(Passport.searchPassport(new Passport(5342, "Смирнов", "Дмитрий", "Евгеньевич", "30.06.1976")));
     }
+
 }

@@ -75,7 +75,8 @@ public class Passport {
                 return searchPassport;
             }
         }
-        return null;
+        System.out.println(" Данный паспорт не найден");
+        return null ;
     }
 
 

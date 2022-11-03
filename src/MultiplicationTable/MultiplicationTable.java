@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class MultiplicationTable {
     private static Set<String> setTasks = new HashSet<>();
-    static int COUNT_PUPIL = 15;
+
 
     public MultiplicationTable() {
 
