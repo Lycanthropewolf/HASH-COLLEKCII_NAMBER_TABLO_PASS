@@ -33,6 +33,7 @@ public class Main {
             String inverseNumber = pairNumber.charAt(2) + "*" + pairNumber.charAt(0);
             if (!getSetTasks().contains(pairNumber) && !getSetTasks().contains(inverseNumber)) {
                 getSetTasks().add(pairNumber);
+                System.out.println();
                 count++;
             }
 
