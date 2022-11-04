@@ -1,9 +1,6 @@
 import Passport.Passport;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 import static MultiplicationTable.MultiplicationTable.generatePairNumber;
 import static MultiplicationTable.MultiplicationTable.getSetTasks;
@@ -13,19 +10,25 @@ public class Main {
     public static void main(String[] args) {
         //ДЗ про числа
         Set<Integer> numbers = new HashSet<>();
-        Random random = new Random();
-        for (int i = 0; i < 20; i++) {
-            int t = random.nextInt(1000);
-            numbers.add(t);
+        int a = 1000;
+        int counter = 0;
+        while (counter < 20) {
+            int random = (int) (Math.random() * a);
+            numbers.add(random);
+            {
+
+                counter++;
+            }
         }
         Iterator<Integer> iterator = numbers.iterator();
         while (iterator.hasNext()) {
             var integer = iterator.next();
-            if (integer % 2 != 0){
+            if (integer % 2 != 0) {
                 iterator.remove();
-                System.out.println(integer+" ");
+
             }
         }
+        System.out.println(numbers + " ");
 
         //ДЗ про таблицу умножения
         int count = 0;
@@ -42,13 +45,14 @@ public class Main {
         System.out.println(getSetTasks());
 
 // ДЗ про пасспорт
-        Passport passport1=new Passport(44554, " Иванов", "Иван", "Иванович", "14.05.1956");
-        Passport passport2=new Passport(5363, "Смирнов", "Дмитрий", "Евгеньевич", "30.06.1976");
-        Passport passport3=new Passport(445231, "Сидоров", "Армэн", "Семеныч", "18.01.1967");
-        Passport passport4=new Passport(44554, " Какахин", "Валера", "Янович", "10.10.1998");
-        Passport passport5=new Passport(444, " Цеханович", "Валерий", "Иванович", "01.07.1999");
+        Passport passport1 = new Passport(44554, " Иванов", "Иван", "Иванович", "14.12.1956");
+        Passport passport2 = new Passport(5363, "Смирнов", "Дмитрий", "Евгеньевич", "30.06.1976");
+        Passport passport3 = new Passport(445231, "Сидоров", "Армэн", "Семеныч", "18.01.1967");
+        Passport passport4 = new Passport(44554, " Какахин", "Валера", "Янович", "10.10.1998");
+        Passport passport5 = new Passport(444, " Цеханович", "Валерий", "Иванович", "01.07.1999");
         addNewPassport(passport1);
-        addNewPassport(passport2);;
+        addNewPassport(passport2);
+        ;
         addNewPassport(passport5);
         printListOfPassports();
         searchPassport(passport1);

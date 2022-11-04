@@ -30,7 +30,7 @@ public class PassportList {
     public static Passport searchPassport(Passport searchPassport) {
         for (Passport passport : listOfPassports) {
             if (passport.equals(searchPassport)) {
-                System.out.println(" Данный паспорт содержится в множестве");
+                System.out.println(" Данный паспорт содержится в списке");
                 return searchPassport;
 
             }

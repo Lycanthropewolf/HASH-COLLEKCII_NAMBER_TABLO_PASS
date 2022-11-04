@@ -11,9 +11,7 @@ public class Passport {
     private String patronymic;
     private String dataOfBirth;
 
-    public Passport(int number, String surname, String name, String dataOfBirth) {
-        this(number, surname, name, null, dataOfBirth);
-    }
+
 
     public Passport(int number, String surname, String name, String patronymic, String dataOfBirth) {
         if (number <= 0) {
@@ -32,22 +30,15 @@ public class Passport {
             this.name = name;
         }
         this.patronymic = patronymic;
-        if (parseDate(dataOfBirth) == null) {
+        if (dataOfBirth == null||dataOfBirth.isEmpty()||dataOfBirth.isBlank()) {
             System.out.println(" Введите дату рождения в формате \"dd.mm.yyyy\"");
         } else {
-            this.dataOfBirth = dataOfBirth;
+            this.dataOfBirth = new SimpleDateFormat("dd.mm.yyyy").toString();
         }
 
 
     }
 
-    public static Date parseDate(String date) {
-        try {
-            return new SimpleDateFormat("dd.mm.yyyy").parse(date);
-        } catch (ParseException e) {
-            return null;
-        }
-    }
 
 
 
