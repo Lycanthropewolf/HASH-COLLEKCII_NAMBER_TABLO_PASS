@@ -7,6 +7,7 @@ import java.util.Set;
 
 import static MultiplicationTable.MultiplicationTable.generatePairNumber;
 import static MultiplicationTable.MultiplicationTable.getSetTasks;
+import static Passport.PassportList.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -41,17 +42,18 @@ public class Main {
         System.out.println(getSetTasks());
 
 // ДЗ про пасспорт
-        Passport.addNewPassport(new Passport(44554, " Иванов", "Иван", "Иванович", "14.05.1956"));
-        Passport.addNewPassport(new Passport(5363, "Смирнов", "Дмитрий", "Евгеньевич", "30.06.1976"));
-        Passport.addNewPassport(new Passport(44554, "Сидоров", "Армэн", "Семеныч", "18.01.1967"));
-        Passport.addNewPassport(new Passport(44554, " Какахин", "Валера", "Янович", "10.10.1998"));
-        Passport.addNewPassport(new Passport(44554, " Цеханович", "Валерий", "Иванович", "01.07.1999"));
+        Passport passport1=new Passport(44554, " Иванов", "Иван", "Иванович", "14.05.1956");
+        Passport passport2=new Passport(5363, "Смирнов", "Дмитрий", "Евгеньевич", "30.06.1976");
+        Passport passport3=new Passport(445231, "Сидоров", "Армэн", "Семеныч", "18.01.1967");
+        Passport passport4=new Passport(44554, " Какахин", "Валера", "Янович", "10.10.1998");
+        Passport passport5=new Passport(444, " Цеханович", "Валерий", "Иванович", "01.07.1999");
+        addNewPassport(passport1);
+        addNewPassport(passport2);;
+        addNewPassport(passport5);
+        printListOfPassports();
+        searchPassport(passport1);
 
 
-        Passport.printListOfPassports();
-
-        System.out.println(Passport.searchPassport(new Passport(5363, "Смирнов", "Дмитрий", "Евгеньевич", "30.06.1976")));
-        System.out.println(Passport.searchPassport(new Passport(5342, "Смирнов", "Дмитрий", "Евгеньевич", "30.06.1976")));
     }
 
 }

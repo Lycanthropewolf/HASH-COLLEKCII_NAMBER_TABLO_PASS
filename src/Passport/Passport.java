@@ -10,7 +10,6 @@ public class Passport {
     private String name;
     private String patronymic;
     private String dataOfBirth;
-    private static List<Passport> listOfPassports = new ArrayList<Passport>();
 
     public Passport(int number, String surname, String name, String dataOfBirth) {
         this(number, surname, name, null, dataOfBirth);
@@ -50,42 +49,6 @@ public class Passport {
         }
     }
 
-    public static void addNewPassport(Passport newPassport) {
-        boolean checkNewPassport = true;
-        for (Passport passport : listOfPassports) {
-            if (passport.getNumber() == newPassport.getNumber()) {
-                passport.setName(newPassport.getName());
-                passport.setSurname(newPassport.getSurname());
-                passport.setPatronymic(newPassport.getPatronymic());
-                passport.setDataOfBirth(newPassport.getDataOfBirth());
-                checkNewPassport = false;
-                break;
-            }
-
-        }
-        if (checkNewPassport) {
-            listOfPassports.add(newPassport);
-        }
-    }
-
-
-    public static Passport searchPassport(Passport searchPassport) {
-        for (Passport passport : listOfPassports) {
-            if (passport.getNumber() == searchPassport.getNumber()) {
-                return searchPassport;
-            }
-        }
-        System.out.println(" Данный паспорт не найден");
-        return null ;
-    }
-
-
-    public static void printListOfPassports() {
-        System.out.println(" полный перечень паспортов");
-        for (Passport passport : listOfPassports) {
-            System.out.println(passport);
-        }
-    }
 
 
     public int getNumber() {
@@ -108,9 +71,7 @@ public class Passport {
         return dataOfBirth;
     }
 
-    public static List<Passport> getListOfPassports() {
-        return listOfPassports;
-    }
+
 
 
     public void setSurname(String surname) {
@@ -129,21 +90,19 @@ public class Passport {
         this.dataOfBirth = dataOfBirth;
     }
 
-    public static void setListOfPassports(List<Passport> listOfPassports) {
-        Passport.listOfPassports = listOfPassports;
-    }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Passport)) return false;
         Passport passport = (Passport) o;
-        return number == passport.number && surname.equals(passport.surname) && name.equals(passport.name) && patronymic.equals(passport.patronymic) && dataOfBirth.equals(passport.dataOfBirth);
+        return number == passport.number;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(number, surname, name, patronymic, dataOfBirth);
+        return Objects.hash(number);
     }
 
     @Override
