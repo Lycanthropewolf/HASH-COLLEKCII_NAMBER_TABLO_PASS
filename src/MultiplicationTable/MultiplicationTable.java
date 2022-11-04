@@ -1,11 +1,12 @@
 package MultiplicationTable;
 
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 public class MultiplicationTable {
     private static Set<String> setTasks = new HashSet<>();
-    static int COUNT_PUPIL = 15;
+
 
     public MultiplicationTable() {
 
@@ -14,13 +15,19 @@ public class MultiplicationTable {
     public static String generatePairNumber() {
         int x;
         int y;
-        x = (int) (Math.random() * 8) + 2;
-        y = (int) (Math.random() * 8) + 2;
-        String pairNumber = String.valueOf(x) + "*" + String.valueOf(y);
+        Random ran = new Random();
+        x = ran.nextInt(10);
+        y = ran.nextInt(10);
+        String pairNumber = x + "*" + y;
         return pairNumber;
     }
+    public static Set<String> getSetTasks() {
+        return setTasks;
+    }
+}
 
-    public static boolean checkTask(String pairNumber) {
+
+    /*public static boolean checkTask(String pairNumber) {
         String invertedPairNumber = pairNumber.charAt(2) + "*" + pairNumber.charAt(0);
         for (String task: setTasks){
             if (pairNumber.equals(task)||invertedPairNumber.equals(task)){
@@ -38,8 +45,5 @@ public class MultiplicationTable {
             setTasks.add(pairNumber);
         }
     }
+*/
 
-    public static Set<String> getSetTasks() {
-        return setTasks;
-    }
-}
