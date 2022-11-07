@@ -11,14 +11,10 @@ public class Main {
         //ДЗ про числа
         Set<Integer> numbers = new HashSet<>();
         int a = 1000;
-        int counter = 0;
-        while (counter < 20) {
+        while (numbers.size() < 20) {
             int random = (int) (Math.random() * a);
             numbers.add(random);
-            {
 
-                counter++;
-            }
         }
         Iterator<Integer> iterator = numbers.iterator();
         while (iterator.hasNext()) {
